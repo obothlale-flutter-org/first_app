@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/styled_text.dart';
+// import 'package:first_app/styled_text.dart'; //unused import
 
 var startAlignment = Alignment.topLeft;
 var endAlignment = Alignment.bottomRight;
