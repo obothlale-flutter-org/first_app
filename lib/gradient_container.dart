@@ -8,21 +8,29 @@ Alignment? variable1;
 class GradientContainer extends StatelessWidget {
   //GradientContainer({key}): super(key: key); // expected by class StatelessWidget which we are inheriting from more verbose
 
-  const GradientContainer(
+  /* Alternatively use named arguments instead of positional but you have to use "required" since by default they are optional
+    const GradientContainer({super.key, required this.linearGradientColors});
+  */
+
+  const GradientContainer(this.linearGradientColors,
       {super.key}); // expected by class StatelessWidget which we are inheriting from less verbose
+
+  final List<Color> linearGradientColors;
 
   @override
   Widget build(context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(colors: const [
-          Color.fromARGB(255, 169, 161, 181),
-          Color.fromARGB(255, 146, 110, 208),
-          Color.fromARGB(255, 72, 13, 174)
-        ], begin: startAlignment, end: endAlignment),
+        gradient: LinearGradient(
+            colors: linearGradientColors,
+            begin: startAlignment,
+            end: endAlignment),
       ),
-      child: const Center(
-        child: StyledText(),
+      child: Center(
+        child: Image.asset(
+          'assets/images/dice-2.png',
+          width: 200,
+        ), // image has a constructor function called asset for convenience instead of providing and provider to Image class
       ),
     );
   }
